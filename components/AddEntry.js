@@ -76,7 +76,7 @@ class AddEntry extends Component {
        eat: 0
      }))
 
-     // Navigate to home
+     this.props.navigation.goBack()
 
      submitEntry({ key, entry })
 
@@ -89,7 +89,8 @@ class AddEntry extends Component {
     this.props.dispatch(addEntry({
       [key]: getDailyReminderValue()
     }))
-     // Route to Home
+
+     this.props.navigation.goBack()
 
      removeEntry(key)
   }
