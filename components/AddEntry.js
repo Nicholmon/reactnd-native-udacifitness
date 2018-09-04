@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native'
 import { connect } from 'react-redux'
-import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers'
+import { getMetricMetaInfo,
+  timeToString,
+  getDailyReminderValue,
+  clearLocalNotification,
+  setLocalNotification
+} from '../utils/helpers'
 import { submitEntry, removeEntry } from '../utils/api'
 import { white, purple }  from '../utils/colors'
 import UdaciSlider from './UdaciSlider'
@@ -80,7 +85,8 @@ class AddEntry extends Component {
 
      submitEntry({ key, entry })
 
-     // Clear local notification
+     clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   reset = () => {
