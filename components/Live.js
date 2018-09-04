@@ -114,7 +114,7 @@ export default class Live extends Component {
                Speed
              </Text>
              <Text style={[styles.subHeader, {color: white}]}>
-               {coords && coords.speed} Km/h
+               {coords && (coords.speed * 3.6).toFixed(1)} Km/h
              </Text>
            </View>
          </View>
