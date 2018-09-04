@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { purple, white } from './utils/colors'
+import { setLocalNotification } from './utils/helpers'
 import reducer from './reducers'
 import AddEntry from './components/AddEntry'
 import History from './components/History'
@@ -91,6 +92,10 @@ const MainNavigator = createStackNavigator({
 
 export default class App extends React.Component {
   store = createStore(reducer)
+
+  componentDidMount() {
+    setLocalNotification()
+  }
 
   render() {
     return (
